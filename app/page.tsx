@@ -1,907 +1,898 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
+  Building2,
   CheckCircle2,
-  ChevronRight,
-  Hotel,
-  LineChart,
+  ChevronDown,
+  Globe2,
+  Mail,
   Menu,
-  Settings2,
+  Phone,
+  Target,
+  TrendingUp,
   Users,
   X,
 } from "lucide-react";
 
-const principles = [
-  "Professional management systems",
-  "Operational accountability",
-  "Exceptional guest experience",
-  "Financial and cost awareness",
-  "Continuous performance improvement",
-  "Sustainable business development",
-];
-
-const clients = [
-  "Hotels & Resorts",
-  "Boutique Hotels",
-  "Serviced Apartments",
-  "Restaurants & Hospitality Businesses",
-  "Property Owners",
-  "Investors & Developers",
-];
-
-const values = [
-  {
-    title: "Professionalism",
-    text: "We maintain high professional standards in every engagement and every operational decision.",
-  },
-  {
-    title: "Integrity",
-    text: "We operate with transparency, accountability, responsibility, and respect for every client relationship.",
-  },
-  {
-    title: "Excellence",
-    text: "We continuously pursue better service, stronger systems, and improved business performance.",
-  },
-  {
-    title: "Innovation",
-    text: "We embrace smarter ideas, modern practices, and practical solutions for a changing hospitality industry.",
-  },
-  {
-    title: "People",
-    text: "We understand that outstanding hospitality begins with capable, motivated, and properly developed people.",
-  },
-  {
-    title: "Growth",
-    text: "We focus on creating measurable value and building hospitality businesses that are positioned for sustainable growth.",
-  },
-];
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#b89452] sm:text-xs sm:tracking-[0.28em]">
-      <span className="h-px w-7 shrink-0 bg-[#b89452] sm:w-10" />
-      {children}
-    </div>
-  );
-}
-
-function BannerSection({
-  src,
-  eyebrow,
-  title,
-  description,
-  buttonText,
-  buttonHref,
-  reverse = false,
-}: {
-  src: string;
-  eyebrow: string;
-  title: string;
-  description: string;
-  buttonText: string;
-  buttonHref: string;
-  reverse?: boolean;
-}) {
-  return (
-    <section className="overflow-hidden bg-white">
-      <div className="w-full overflow-hidden border-y border-[#b89452]/30 bg-white">
-        <img
-          src={src}
-          alt={title}
-          className="block h-auto w-full max-w-full object-contain"
-        />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.7 }}
-          className={`max-w-4xl ${reverse ? "ml-auto text-left sm:text-right" : ""}`}
-        >
-          <div
-            className={`mb-5 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[#b89452] sm:text-xs sm:tracking-[0.3em] ${
-              reverse ? "sm:justify-end" : ""
-            }`}
-          >
-            {!reverse && <span className="h-px w-7 shrink-0 bg-[#b89452] sm:w-10" />}
-            {eyebrow}
-            {reverse && <span className="hidden h-px w-10 bg-[#b89452] sm:block" />}
-          </div>
-
-          <h2 className="break-words font-serif text-3xl font-semibold leading-[1.08] text-[#171512] sm:text-5xl lg:text-6xl">
-            {title}
-          </h2>
-
-          <p
-            className={`mt-5 max-w-3xl text-sm leading-7 text-black/60 sm:text-lg sm:leading-8 ${
-              reverse ? "sm:ml-auto" : ""
-            }`}
-          >
-            {description}
-          </p>
-
-          <a
-            href={buttonHref}
-            className="mt-7 inline-flex max-w-full items-center justify-center gap-3 rounded-full bg-[#171512] px-6 py-3.5 text-center text-xs font-semibold text-white transition hover:bg-[#b89452] sm:px-7 sm:text-sm"
-          >
-            {buttonText}
-            <ArrowRight size={16} className="shrink-0" />
-          </a>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  function closeMenu() {
+    setMenuOpen(false);
+  }
 
   return (
-    <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f6f3ed] text-[#171512]">
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-black/10 bg-[#f6f3ed]/95 backdrop-blur-xl">
-        <div className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:min-h-[80px] sm:px-8 lg:px-12">
-          <a
+    <main
+      className="min-h-screen bg-[#090807] pt-[82px] text-[#f7f1e5]"
+      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+    >
+      {/* =========================================================
+          PREMIUM HEADER
+      ========================================================== */}
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-[#d4af67]/30 bg-[#090807]/95 shadow-[0_8px_35px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+        <div className="h-[3px] w-full bg-gradient-to-r from-[#168ac0] via-[#d4af67] to-[#5ec8ff]" />
+
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-12">
+          <Link
             href="/"
-            onClick={closeMobileMenu}
-            className="flex min-w-0 items-center gap-2.5 sm:gap-3"
+            onClick={closeMenu}
+            className="group flex items-center gap-3"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[#b89452]/50 bg-white shadow-sm sm:h-12 sm:w-12">
-              <img
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-full bg-[#d4af67]/20 blur-md transition group-hover:bg-[#5ec8ff]/30" />
+
+              <Image
                 src="/loremm-logo.jpg"
-                alt="LOREMM logo"
-                className="h-full w-full object-cover"
+                alt="LOREMM Hospitality Management and Consulting Ltd"
+                width={56}
+                height={56}
+                priority
+                className="relative h-11 w-11 rounded-full border border-[#d4af67]/70 object-cover sm:h-12 sm:w-12"
               />
             </div>
 
-            <div className="min-w-0">
-              <div className="font-serif text-lg font-bold tracking-[0.1em] sm:text-xl sm:tracking-[0.12em]">
+            <div className="leading-none">
+              <p className="text-lg font-black tracking-[0.18em] text-[#f7f1e5]">
                 LOREMM
-              </div>
+              </p>
 
-              <div className="hidden text-[8px] font-semibold uppercase tracking-[0.18em] text-[#776c5d] sm:block sm:tracking-[0.22em]">
-                Hospitality Management & Consulting
-              </div>
+              <p className="mt-1 text-[8px] font-black uppercase tracking-[0.16em] text-[#d4af67] sm:text-[9px]">
+                Hospitality Management
+              </p>
             </div>
-          </a>
+          </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="hidden items-center gap-2 lg:flex">
-            <a
+          <nav className="hidden items-center gap-1 lg:flex">
+            <Link
               href="/"
-              className="rounded-full bg-[#171512] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#b89452]"
+              className="group relative rounded-full px-4 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#5ec8ff]"
             >
               Home
-            </a>
+              <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-[#5ec8ff]" />
+            </Link>
 
-            <a
+            <Link
               href="#about"
-              className="rounded-full px-4 py-2.5 text-sm font-medium transition hover:bg-black/5 hover:text-[#a77c2d]"
+              className="rounded-full px-4 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
             >
               About
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/services"
-              className="rounded-full border border-[#b89452]/50 bg-[#b89452]/10 px-5 py-2.5 text-sm font-bold text-[#8c6829] transition hover:bg-[#b89452] hover:text-white"
+              className="rounded-full px-4 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
             >
               Services
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/ecosystem"
-              className="rounded-full border border-[#b89452]/50 bg-[#b89452]/10 px-5 py-2.5 text-sm font-bold text-[#8c6829] transition hover:bg-[#b89452] hover:text-white"
+              className="rounded-full px-4 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
             >
               Group Ecosystem
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="#approach"
-              className="rounded-full px-4 py-2.5 text-sm font-medium transition hover:bg-black/5 hover:text-[#a77c2d]"
+              className="rounded-full px-4 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
             >
               Approach
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="#values"
-              className="rounded-full px-4 py-2.5 text-sm font-medium transition hover:bg-black/5 hover:text-[#a77c2d]"
+              className="rounded-full px-4 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
             >
               Values
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="#contact"
-              className="ml-1 rounded-full bg-[#171512] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#b89452]"
+              className="ml-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d4af67] to-[#e8c980] px-6 py-3 text-[11px] font-black uppercase tracking-[0.14em] text-[#090807] shadow-lg transition hover:scale-[1.03] hover:from-[#f0d28d] hover:to-[#d4af67]"
             >
               Contact Us
-            </a>
+              <ArrowRight size={15} />
+            </Link>
           </nav>
 
-          {/* MOBILE HEADER */}
-          <div className="flex shrink-0 items-center gap-2 lg:hidden">
-            <a
-              href="/services"
-              className="hidden rounded-full border border-[#b89452] bg-[#b89452]/10 px-3.5 py-2 text-[10px] font-bold uppercase tracking-wide text-[#8c6829] xs:inline-flex sm:inline-flex"
-            >
-              Services
-            </a>
-
-            <button
-              type="button"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen((open) => !open)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-[#171512] shadow-sm transition hover:border-[#b89452] hover:text-[#b89452]"
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d4af67]/60 bg-[#d4af67]/10 text-[#d4af67] transition hover:bg-[#d4af67] hover:text-[#090807] lg:hidden"
+            aria-label="Toggle navigation"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
 
-        {/* MOBILE MENU */}
-        {mobileMenuOpen && (
-          <div className="border-t border-black/10 bg-[#f6f3ed] px-4 py-4 lg:hidden">
-            <nav className="mx-auto grid max-w-7xl gap-2">
+        {menuOpen && (
+          <div className="border-t border-[#d4af67]/20 bg-[#090807] px-5 pb-6 pt-3 shadow-2xl lg:hidden">
+            <nav className="mx-auto flex max-w-xl flex-col">
               {[
                 ["Home", "/"],
-                ["About", "/#about"],
-                ["Our Services", "/services"],
+                ["About", "#about"],
+                ["Services", "/services"],
                 ["Group Ecosystem", "/ecosystem"],
-                ["Approach", "/#approach"],
-                ["Values", "/#values"],
-                ["Contact Us", "/#contact"],
-              ].map(([label, href]) => (
-                <a
+                ["Approach", "#approach"],
+                ["Values", "#values"],
+                ["Contact Us", "#contact"],
+              ].map(([label, href], index) => (
+                <Link
                   key={label}
                   href={href}
-                  onClick={closeMobileMenu}
-                  className="flex min-h-12 items-center justify-between rounded-xl border border-black/10 bg-white px-4 text-sm font-semibold transition hover:border-[#b89452] hover:text-[#a77c2d]"
+                  onClick={closeMenu}
+                  className={`flex items-center justify-between border-b border-[#d4af67]/10 py-4 text-sm font-black uppercase tracking-[0.16em] ${
+                    index === 0 ? "text-[#5ec8ff]" : "text-[#f7f1e5]"
+                  }`}
                 >
                   {label}
-                  <ChevronRight size={17} className="text-[#b89452]" />
-                </a>
+
+                  <ChevronDown
+                    size={15}
+                    className="-rotate-90 text-[#d4af67]"
+                  />
+                </Link>
               ))}
             </nav>
           </div>
         )}
       </header>
 
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-[#171512]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(184,148,82,0.18),transparent_35%)]" />
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#b89452]/10 to-transparent" />
+      {/* =========================================================
+          COMPANY INTRODUCTION
+      ========================================================== */}
+      <section className="relative overflow-hidden border-b border-[#d4af67]/20 bg-[#090807]">
+        <div className="absolute inset-x-0 top-0 h-px bg-[#d4af67]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-24 md:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:px-12 lg:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="min-w-0"
-          >
-            <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af67] sm:text-xs sm:tracking-[0.32em]">
-              <span className="h-px w-8 shrink-0 bg-[#d4af67] sm:w-12" />
-              Hospitality Management & Consulting
-            </div>
+        <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#168ac0]/10 blur-[120px]" />
 
-            <h1 className="max-w-4xl break-words font-serif text-[2.75rem] font-semibold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Building Better
-              <span className="block text-[#d4af67]">
-                Hospitality Businesses.
-              </span>
-            </h1>
+        <div className="absolute -right-40 top-10 h-96 w-96 rounded-full bg-[#d4af67]/10 blur-[120px]" />
 
-            <p className="mt-7 max-w-2xl text-sm leading-7 text-white/70 sm:text-lg sm:leading-8">
-              LOREMM Hospitality Management and Consulting Ltd provides
-              professional management, consulting, operational, and development
-              solutions designed to help hospitality businesses perform better,
-              grow stronger, and deliver exceptional experiences.
-            </p>
+        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-16 sm:px-8 lg:px-12 lg:pb-24 lg:pt-20">
+          <div className="grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr]">
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative">
+                <div className="absolute -inset-10 rounded-full bg-[#d4af67]/10 blur-3xl" />
 
-            <div className="mt-9 flex w-full flex-col gap-3 sm:flex-row">
-              <a
-                href="/services"
-                className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#d4af67] px-6 py-3.5 text-sm font-bold text-[#171512] transition hover:bg-white sm:w-auto sm:px-7"
-              >
-                Explore Our Services
-                <ArrowRight size={17} />
-              </a>
-
-              <a
-                href="/ecosystem"
-                className="inline-flex w-full items-center justify-center gap-3 rounded-full border border-[#d4af67]/50 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#d4af67] hover:text-[#171512] sm:w-auto sm:px-7"
-              >
-                Explore Group Ecosystem
-                <ArrowRight size={17} />
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.15 }}
-            className="relative mx-auto w-full max-w-md"
-          >
-            <div className="absolute -inset-5 rounded-full bg-[#b89452]/10 blur-3xl" />
-
-            <div className="relative overflow-hidden rounded-3xl border border-[#d4af67]/35 bg-white/5 p-4 shadow-2xl backdrop-blur-sm sm:p-5">
-              <div className="aspect-square overflow-hidden rounded-2xl border border-white/10 bg-white">
-                <img
-                  src="/loremm-logo.jpg"
-                  alt="LOREMM Hospitality Management and Consulting Ltd"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-
-              <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:gap-3">
-                <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:p-4">
-                  <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#d4af67] sm:text-[10px]">
-                    Focus
-                  </div>
-                  <div className="mt-2 text-xs font-semibold text-white sm:text-sm">
-                    Hospitality
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:p-4">
-                  <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#d4af67] sm:text-[10px]">
-                    Standard
-                  </div>
-                  <div className="mt-2 text-xs font-semibold text-white sm:text-sm">
-                    Excellence
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* BANNER 1 */}
-      <BannerSection
-        src="/loremm-banner-1.jpg"
-        eyebrow="LOREMM Hospitality"
-        title="Where Hospitality Meets Professional Management."
-        description="We bring structure, discipline, expertise, and strategic thinking to hospitality businesses that want to operate at a higher standard."
-        buttonText="Discover LOREMM"
-        buttonHref="#about"
-      />
-
-      {/* INTRO STRIP */}
-      <section className="border-b border-black/10 bg-white">
-        <div className="mx-auto grid max-w-7xl md:grid-cols-3">
-          {[
-            [
-              "01",
-              "Expertise",
-              "Professional hospitality management and consulting",
-            ],
-            [
-              "02",
-              "Focus",
-              "Operational excellence and sustainable growth",
-            ],
-            [
-              "03",
-              "Coverage",
-              "Management, development, people and performance",
-            ],
-          ].map(([number, title, text], index) => (
-            <div
-              key={number}
-              className={`p-6 sm:p-9 ${
-                index !== 2
-                  ? "border-b border-black/10 md:border-b-0 md:border-r"
-                  : ""
-              }`}
-            >
-              <div className="text-xs font-bold tracking-[0.25em] text-[#b89452]">
-                {number}
-              </div>
-
-              <div className="mt-3 font-serif text-2xl font-semibold">
-                {title}
-              </div>
-
-              <p className="mt-2 text-sm leading-6 text-black/60">{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" className="scroll-mt-24 bg-[#f6f3ed] py-16 sm:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-12">
-          <div>
-            <SectionLabel>About LOREMM</SectionLabel>
-
-            <h2 className="break-words font-serif text-3xl font-semibold leading-tight sm:text-5xl">
-              Professional thinking.
-              <span className="block text-[#a77c2d]">
-                Practical execution.
-              </span>
-            </h2>
-          </div>
-
-          <div className="max-w-3xl">
-            <p className="text-base leading-8 text-black/75 sm:text-lg">
-              LOREMM Hospitality Management and Consulting Ltd is focused on
-              helping hospitality businesses achieve stronger operational
-              performance, better service delivery, and sustainable business
-              growth.
-            </p>
-
-            <p className="mt-6 text-sm leading-7 text-black/60 sm:text-base sm:leading-8">
-              Our approach combines hospitality expertise with structured
-              management systems, strategic thinking, people development,
-              performance monitoring, procurement discipline, and practical
-              business solutions.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {principles.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2
-                    size={18}
-                    className="mt-0.5 shrink-0 text-[#b89452]"
+                <div className="relative rounded-full border border-[#d4af67]/40 bg-[#11100d] p-3 shadow-[0_0_80px_rgba(212,175,103,0.12)]">
+                  <Image
+                    src="/loremm-logo.jpg"
+                    alt="LOREMM"
+                    width={500}
+                    height={500}
+                    className="h-56 w-56 rounded-full object-cover sm:h-64 sm:w-64 lg:h-72 lg:w-72"
                   />
-
-                  <span className="text-sm font-medium leading-6 text-black/70">
-                    {item}
-                  </span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES TEASER */}
-      <section className="overflow-hidden bg-[#171512] py-16 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-          <div className="grid items-start gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div className="max-w-4xl">
-              <SectionLabel>Our Services</SectionLabel>
-
-              <h2 className="break-words font-serif text-3xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-                Complete hospitality solutions
-                <span className="block text-[#d4af67]">
-                  built around performance.
-                </span>
-              </h2>
-
-              <p className="mt-6 max-w-3xl text-sm leading-7 text-white/60 sm:text-lg sm:leading-8">
-                From hotel management and operations to staff development,
-                procurement, property oversight, and business consulting,
-                LOREMM provides practical solutions across the hospitality
-                value chain.
-              </p>
-            </div>
-
-            <a
-              href="/services"
-              className="group inline-flex w-full items-center justify-center gap-4 rounded-full border border-[#d4af67] bg-[#d4af67] px-6 py-4 text-sm font-bold text-[#171512] transition hover:bg-white sm:w-auto sm:px-8"
-            >
-              Explore All Services
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </a>
-          </div>
-
-          <div className="mt-12 grid gap-3 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { icon: Hotel, title: "Hotel Management" },
-              { icon: Settings2, title: "Hospitality Operations" },
-              { icon: LineChart, title: "Business Development" },
-              { icon: Users, title: "People & Training" },
-              { icon: Settings2, title: "Property Management" },
-              { icon: LineChart, title: "Hospitality Consulting" },
-            ].map((service, index) => {
-              const Icon = service.icon;
-
-              return (
-                <a
-                  key={index}
-                  href="/services"
-                  className="group flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] p-4 transition hover:border-[#d4af67]/40 hover:bg-white/[0.07] sm:gap-4 sm:p-5"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d4af67]/30 bg-[#d4af67]/10 sm:h-11 sm:w-11">
-                    <Icon size={18} className="text-[#d4af67]" />
-                  </div>
-
-                  <span className="min-w-0 text-xs font-semibold leading-5 text-white/75 sm:text-sm">
-                    {service.title}
-                  </span>
-
-                  <ChevronRight
-                    size={16}
-                    className="ml-auto shrink-0 text-white/20 transition group-hover:translate-x-1 group-hover:text-[#d4af67]"
-                  />
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* BANNER 2 */}
-      <BannerSection
-        src="/loremm-banner-2.jpg"
-        eyebrow="Operational Excellence"
-        title="Creating Standards That Last."
-        description="Our objective is simple: build hospitality businesses that are well managed, commercially strong, operationally disciplined, and capable of delivering memorable guest experiences."
-        buttonText="Our Management Approach"
-        buttonHref="#approach"
-        reverse
-      />
-
-      {/* VISION & MISSION */}
-      <section className="bg-[#211e19] py-16 sm:py-28">
-        <div className="mx-auto grid max-w-7xl gap-5 px-5 sm:px-8 md:grid-cols-2 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-white/10 bg-white/[0.035] p-6 sm:p-10"
-          >
-            <SectionLabel>Our Vision</SectionLabel>
-
-            <h2 className="font-serif text-2xl font-semibold leading-tight text-white sm:text-4xl">
-              To become a trusted benchmark for hospitality excellence.
-            </h2>
-
-            <p className="mt-6 text-sm leading-7 text-white/55 sm:text-base">
-              We aspire to help shape a hospitality industry where professional
-              management, service excellence, innovation, and sustainable
-              business practices become the standard.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-[#d4af67]/25 bg-[#d4af67]/[0.06] p-6 sm:p-10"
-          >
-            <SectionLabel>Our Mission</SectionLabel>
-
-            <h2 className="font-serif text-2xl font-semibold leading-tight text-white sm:text-4xl">
-              To make hospitality businesses better.
-            </h2>
-
-            <p className="mt-6 text-sm leading-7 text-white/55 sm:text-base">
-              Through professional management, consulting, training, systems,
-              and strategic development, we help clients improve operations,
-              strengthen teams, enhance guest experience, and create lasting
-              value.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* APPROACH */}
-      <section id="approach" className="scroll-mt-24 bg-white py-16 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
-              <SectionLabel>Management Approach</SectionLabel>
-
-              <h2 className="break-words font-serif text-3xl font-semibold leading-tight sm:text-5xl">
-                Structured management
-                <span className="block text-[#a77c2d]">
-                  with measurable results.
-                </span>
-              </h2>
-            </div>
-
-            <div className="grid gap-8 sm:grid-cols-2">
-              {[
-                {
-                  n: "01",
-                  title: "Assess",
-                  text: "Understand the property, business model, team, market position, opportunities, and operational challenges.",
-                },
-                {
-                  n: "02",
-                  title: "Structure",
-                  text: "Create practical systems, standards, responsibilities, processes, and performance expectations.",
-                },
-                {
-                  n: "03",
-                  title: "Execute",
-                  text: "Translate strategy into disciplined day-to-day action through people, systems, monitoring, and leadership.",
-                },
-                {
-                  n: "04",
-                  title: "Improve",
-                  text: "Review performance continuously, identify opportunities, and implement improvements that strengthen the business.",
-                },
-              ].map((item) => (
-                <div key={item.n} className="border-t border-black/10 pt-6">
-                  <div className="text-xs font-bold tracking-[0.25em] text-[#b89452]">
-                    {item.n}
-                  </div>
-
-                  <h3 className="mt-3 font-serif text-2xl font-semibold">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-black/55">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHO WE SERVE */}
-      <section className="bg-[#171512] py-16 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-          <div className="max-w-3xl">
-            <SectionLabel>Who We Serve</SectionLabel>
-
-            <h2 className="break-words font-serif text-3xl font-semibold leading-tight text-white sm:text-5xl">
-              Supporting businesses across the hospitality landscape.
-            </h2>
-          </div>
-
-          <div className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {clients.map((client, index) => (
-              <div
-                key={client}
-                className="group flex min-w-0 items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.035] p-4 transition hover:border-[#d4af67]/40 hover:bg-white/[0.06] sm:p-5"
-              >
-                <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-                  <span className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-[#d4af67] sm:text-xs">
-                    0{index + 1}
-                  </span>
-
-                  <span className="text-xs font-semibold leading-5 text-white/80 sm:text-sm">
-                    {client}
-                  </span>
-                </div>
-
-                <ChevronRight
-                  size={17}
-                  className="shrink-0 text-white/20 transition group-hover:translate-x-1 group-hover:text-[#d4af67]"
-                />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* WHY LOREMM */}
-      <section className="bg-[#f6f3ed] py-16 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
             <div>
-              <SectionLabel>Why LOREMM</SectionLabel>
+              <div className="flex items-center gap-3">
+                <span className="h-[2px] w-10 bg-[#5ec8ff]" />
 
-              <h2 className="break-words font-serif text-3xl font-semibold leading-tight sm:text-5xl">
-                More than management.
-                <span className="block text-[#a77c2d]">
-                  A partner for growth.
-                </span>
-              </h2>
-
-              <p className="mt-6 max-w-xl text-sm leading-7 text-black/60 sm:text-base sm:leading-8">
-                Hospitality businesses require more than good intentions.
-                They require clear systems, capable people, disciplined
-                execution, commercial awareness, and consistent leadership.
-              </p>
-            </div>
-
-            <div className="grid gap-3">
-              {[
-                "Professional and structured approach",
-                "Hospitality-focused expertise",
-                "Practical operational solutions",
-                "Strong focus on people and service",
-                "Performance and accountability driven",
-                "Long-term value creation",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-4 border-b border-black/10 py-4"
-                >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#171512] text-[#d4af67]">
-                    <CheckCircle2 size={16} />
-                  </div>
-
-                  <span className="text-sm font-semibold leading-6 text-black/70">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section id="values" className="scroll-mt-24 bg-white py-16 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-          <div className="max-w-3xl">
-            <SectionLabel>Our Core Values</SectionLabel>
-
-            <h2 className="break-words font-serif text-3xl font-semibold sm:text-5xl">
-              The principles behind
-              <span className="text-[#a77c2d]"> our work.</span>
-            </h2>
-          </div>
-
-          <div className="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value, index) => (
-              <div
-                key={value.title}
-                className="border-t border-black/10 pt-6"
-              >
-                <div className="text-xs font-bold tracking-[0.25em] text-[#b89452]">
-                  0{index + 1}
-                </div>
-
-                <h3 className="mt-4 font-serif text-2xl font-semibold">
-                  {value.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-black/55">
-                  {value.text}
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-[#5ec8ff]">
+                  Professional Hospitality Management
                 </p>
               </div>
-            ))}
+
+              <h1 className="mt-5 text-6xl font-black uppercase leading-[0.82] tracking-[-0.055em] sm:text-8xl lg:text-[9rem]">
+                LOREMM
+              </h1>
+
+              <p className="mt-5 max-w-3xl text-base font-black uppercase tracking-[0.12em] text-[#d4af67] sm:text-lg lg:text-xl">
+                HOSPITALITY MANAGEMENT &amp; CONSULTING LTD
+              </p>
+
+              <div className="mt-7 h-px w-28 bg-gradient-to-r from-[#d4af67] to-transparent" />
+
+              <p className="mt-7 max-w-4xl text-lg leading-8 text-[#c9c0b1] sm:text-xl">
+                Professional hotel management, operational improvement and
+                strategic hospitality consulting designed to help owners
+                achieve stronger performance, better service and sustainable
+                growth.
+              </p>
+
+              <p className="mt-7 border-l-2 border-[#5ec8ff] pl-5 text-sm font-black uppercase tracking-[0.15em] text-[#f7f1e5] sm:text-base">
+                Hospitality Management. Operational Excellence. Sustainable
+                Growth.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="scroll-mt-24 bg-[#171512]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 sm:py-28 lg:grid-cols-[1fr_0.8fr] lg:px-12">
-          <div>
-            <SectionLabel>Start a Conversation</SectionLabel>
+      {/* =========================================================
+          HOTEL OWNERS - PREMIUM BLACK & GOLD
+      ========================================================== */}
+      <section className="relative overflow-hidden border-y border-[#d4af67]/30 bg-[#070605] text-[#f7f1e5]">
+        <div className="absolute -left-40 top-10 h-[450px] w-[450px] rounded-full bg-[#d4af67]/10 blur-[130px]" />
 
-            <h2 className="max-w-3xl break-words font-serif text-3xl font-semibold leading-tight text-white sm:text-6xl">
-              Let&apos;s build a
-              <span className="text-[#d4af67]">
-                {" "}
-                better hospitality business.
+        <div className="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-[#d4af67]/10 blur-[130px]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="max-w-6xl">
+            <div className="flex items-center gap-4">
+              <span className="h-[4px] w-16 bg-[#d4af67]" />
+
+              <p className="text-lg font-black uppercase tracking-[0.24em] text-[#d4af67] sm:text-xl lg:text-2xl">
+                LOREMM HOSPITALITY MANAGEMENT
+              </p>
+            </div>
+
+            <h2 className="mt-7 text-5xl font-black uppercase leading-[0.82] tracking-[-0.05em] text-[#d4af67] sm:text-7xl lg:text-[6.5rem]">
+              HOTEL OWNERS
+              <span className="block text-[#f7f1e5]">
+                WHO NEED OUR SERVICES.
               </span>
             </h2>
 
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-white/55 sm:text-base sm:leading-7">
-              Whether you are developing a new hospitality property,
-              restructuring an existing operation, or looking for a stronger
-              management partner, LOREMM is ready to discuss your objectives.
-            </p>
+            <div className="mt-8 h-[2px] w-full max-w-4xl bg-gradient-to-r from-[#d4af67] via-[#d4af67]/50 to-transparent" />
 
-            <a
-              href="mailto:Loremmgroup01@gmail.com"
-              className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#d4af67] px-7 py-3.5 text-sm font-bold text-[#171512] transition hover:bg-white sm:w-auto"
-            >
-              Contact LOREMM
-              <ArrowRight size={17} />
-            </a>
+            <p className="mt-8 max-w-3xl text-lg font-medium leading-8 text-[#bcb4a6] sm:text-xl">
+              Is your hotel ready for better management? Whether you are
+              looking for professional oversight, stronger operations,
+              improved profitability or complete peace of mind, LOREMM is
+              ready to manage the difference.
+            </p>
           </div>
 
-          <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.035] p-6 sm:p-9">
-            <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af67]">
-              Head Office
+          {/* =====================================================
+              FOUR OWNER CATEGORIES
+              NO NUMBERS
+              NO LINES
+              NO ARROWS
+          ====================================================== */}
+          <div className="mt-16 grid gap-12 md:grid-cols-2 lg:gap-x-20 lg:gap-y-16">
+            <div className="group">
+              <h3 className="text-3xl font-black uppercase leading-[0.92] tracking-[-0.025em] text-[#d4af67] sm:text-4xl lg:text-[2.65rem]">
+                OWNERS WHO DO NOT HAVE ENOUGH TIME
+              </h3>
+
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#a7a094] sm:text-lg">
+                Hotel owners who are busy with other businesses or personal
+                activities and cannot dedicate the time required to manage the
+                hotel effectively.
+              </p>
             </div>
 
-            <div className="mt-5 break-words font-serif text-xl font-semibold leading-snug text-white sm:text-2xl">
-              LOREMM Hospitality Management and Consulting Ltd
+            <div className="group">
+              <h3 className="text-3xl font-black uppercase leading-[0.92] tracking-[-0.025em] text-[#d4af67] sm:text-4xl lg:text-[2.65rem]">
+                OWNERS WHO LIVE OUTSIDE THE STATE OR COUNTRY
+              </h3>
+
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#a7a094] sm:text-lg">
+                Owners who are not always around to supervise their hotel and
+                need a trusted professional company to manage the property on
+                their behalf.
+              </p>
             </div>
 
-            <div className="mt-7 space-y-5 text-sm leading-7 text-white/60">
-              <p>
-                No. 6, Chief Steve Onu Street,
-                <br />
-                Achike Udenwa Estate,
-                <br />
-                Owerri, Imo State, Nigeria.
+            <div className="group">
+              <h3 className="text-3xl font-black uppercase leading-[0.92] tracking-[-0.025em] text-[#d4af67] sm:text-4xl lg:text-[2.65rem]">
+                OWNERS WHO ARE NOT MAKING ENOUGH PROFIT
+              </h3>
+
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#a7a094] sm:text-lg">
+                Hotel owners whose business is not performing well and need
+                better management, marketing, cost control and commercial
+                strategy.
+              </p>
+            </div>
+
+            <div className="group">
+              <h3 className="text-3xl font-black uppercase leading-[0.92] tracking-[-0.025em] text-[#d4af67] sm:text-4xl lg:text-[2.65rem]">
+                OWNERS WHO WANT TO IMPROVE THEIR HOTEL
+              </h3>
+
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#a7a094] sm:text-lg">
+                Owners who want to increase bookings, improve services,
+                strengthen their team, control costs and make their hotel more
+                profitable.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16 border-t border-[#d4af67]/30 pt-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <p className="max-w-3xl text-2xl font-black uppercase leading-tight sm:text-3xl">
+                YOUR HOTEL DESERVES
+                <span className="text-[#d4af67]"> BETTER MANAGEMENT.</span>
               </p>
 
-              <div className="h-px bg-white/10" />
+              <Link
+                href="#contact"
+                className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-[#d4af67] px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-[#090807] transition hover:bg-[#f0d28d] hover:shadow-[0_0_30px_rgba(212,175,103,0.2)]"
+              >
+                Talk To LOREMM
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <p className="break-words">
-                <span className="text-white/35">Email</span>
-                <br />
+      {/* =========================================================
+          MAIN COMMERCIAL HERO
+      ========================================================== */}
+      <section className="relative overflow-hidden bg-[#090807]">
+        <div className="absolute -right-20 top-0 h-[500px] w-[500px] rounded-full bg-[#d4af67]/10 blur-[130px]" />
 
-                <a
-                  href="mailto:Loremmgroup01@gmail.com"
-                  className="text-white transition hover:text-[#d4af67]"
-                >
-                  Loremmgroup01@gmail.com
-                </a>
+        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 lg:py-32">
+          <div className="grid gap-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-[#5ec8ff]">
+                The LOREMM Difference
               </p>
 
-              <p>
-                <span className="text-white/35">Phone</span>
-                <br />
+              <h2 className="mt-6 text-5xl font-black uppercase leading-[0.86] tracking-[-0.045em] sm:text-7xl lg:text-8xl">
+                WE MANAGE
+                <span className="block text-[#d4af67]">YOUR HOTEL.</span>
+                <span className="block">YOU ENJOY</span>
+                <span className="block text-[#5ec8ff]">THE RESULT.</span>
+              </h2>
 
-                <a
-                  href="tel:+2348062556518"
-                  className="text-white transition hover:text-[#d4af67]"
+              <p className="mt-8 max-w-2xl text-lg leading-8 text-[#aaa193]">
+                We take the pressure of hotel management away from owners and
+                bring professional structure, accountability, operational
+                discipline and commercial thinking into the business.
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-3 rounded-full bg-[#d4af67] px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-[#090807] transition hover:bg-[#f0d28d]"
                 >
-                  +234 806 255 6518
-                </a>
+                  Explore Our Services
+                  <ArrowRight size={18} />
+                </Link>
+
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center gap-3 rounded-full border border-[#f7f1e5]/25 px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:text-[#5ec8ff]"
+                >
+                  Talk To LOREMM
+                </Link>
+              </div>
+            </div>
+
+            <div className="border-l-2 border-[#d4af67] pl-7 sm:pl-10">
+              <p className="text-3xl font-black uppercase leading-tight">
+                MANAGE BETTER.
+              </p>
+
+              <p className="mt-4 text-3xl font-black uppercase leading-tight text-[#d4af67]">
+                PERFORM BETTER.
+              </p>
+
+              <p className="mt-4 text-3xl font-black uppercase leading-tight text-[#5ec8ff]">
+                GROW BETTER.
+              </p>
+
+              <div className="mt-10 h-px bg-[#f7f1e5]/10" />
+
+              <p className="mt-7 text-sm leading-7 text-[#aaa193]">
+                Professional hospitality management built around operational
+                excellence, guest satisfaction and sustainable commercial
+                results.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="overflow-hidden border-t border-white/10 bg-[#0f0e0c]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
-          <div className="flex items-center gap-4">
-            <a
-              href="/"
-              className="h-11 w-11 shrink-0 overflow-hidden rounded-md border border-[#b89452]/40 bg-white"
-            >
-              <img
-                src="/loremm-logo.jpg"
-                alt="LOREMM"
-                className="h-full w-full object-cover"
-              />
-            </a>
+      {/* =========================================================
+          BANNER 1
+      ========================================================== */}
+      <section className="bg-[#11100d]">
+        <Image
+          src="/loremm-banner-1.jpg"
+          alt="LOREMM Hospitality Management"
+          width={1800}
+          height={700}
+          className="h-auto w-full object-cover"
+        />
+      </section>
 
-            <div className="min-w-0">
-              <div className="font-serif text-lg font-bold tracking-[0.1em] text-white">
-                LOREMM
-              </div>
+      {/* =========================================================
+          ABOUT
+      ========================================================== */}
+      <section id="about" className="bg-[#f4eee2] text-[#11100d]">
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-20 sm:px-8 lg:grid-cols-[0.7fr_1.3fr] lg:px-12 lg:py-28">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="h-[3px] w-12 bg-[#168ac0]" />
 
-              <div className="text-[8px] uppercase tracking-[0.15em] text-white/35 sm:text-[9px] sm:tracking-[0.2em]">
-                Hospitality Management & Consulting
-              </div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#168ac0]">
+                About LOREMM
+              </p>
             </div>
+
+            <h2 className="mt-6 text-5xl font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-7xl">
+              PROFESSIONAL
+              <span className="block text-[#9b7834]">MANAGEMENT.</span>
+            </h2>
           </div>
 
-          <div className="flex flex-col gap-4 text-left sm:flex-row sm:items-center lg:text-right">
-            <a
-              href="/"
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50 transition hover:text-[#d4af67]"
-            >
-              Home
-            </a>
+          <div>
+            <p className="text-xl font-semibold leading-9 text-[#302d28] sm:text-2xl">
+              LOREMM Hospitality Management and Consulting Ltd provides
+              professional hotel management and consulting solutions for
+              owners who want stronger operations, better guest experiences
+              and sustainable business growth.
+            </p>
 
-            <a
-              href="/services"
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af67] transition hover:text-white"
-            >
-              Services
-            </a>
+            <p className="mt-8 leading-8 text-[#5d574d]">
+              We combine hospitality expertise, operational discipline and
+              commercial thinking to help hotel businesses become more
+              efficient, competitive and profitable.
+            </p>
 
-            <a
-              href="/ecosystem"
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af67] transition hover:text-white"
-            >
-              Group Ecosystem
-            </a>
+            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+              <div className="border-l-2 border-[#9b7834] pl-5">
+                <Building2 className="text-[#168ac0]" size={26} />
 
-            <div className="hidden h-4 w-px bg-white/10 sm:block" />
+                <h3 className="mt-4 font-black uppercase">
+                  Operational Excellence
+                </h3>
 
-            <div className="max-w-md text-xs font-semibold uppercase leading-5 tracking-[0.12em] text-[#d4af67]">
-              Hospitality Management. Operational Excellence. Sustainable
-              Growth.
+                <p className="mt-2 text-sm leading-7 text-[#6b6459]">
+                  Better systems, stronger accountability and disciplined hotel
+                  operations.
+                </p>
+              </div>
+
+              <div className="border-l-2 border-[#9b7834] pl-5">
+                <TrendingUp className="text-[#168ac0]" size={26} />
+
+                <h3 className="mt-4 font-black uppercase">
+                  Sustainable Growth
+                </h3>
+
+                <p className="mt-2 text-sm leading-7 text-[#6b6459]">
+                  Practical strategies designed to improve performance and
+                  commercial results.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="border-t border-white/5 px-5 py-5 text-center text-[10px] leading-5 text-white/25 sm:px-6 sm:text-[11px]">
-          © {new Date().getFullYear()} LOREMM Hospitality Management and
-          Consulting Ltd. All rights reserved.
+      {/* =========================================================
+          SERVICES
+      ========================================================== */}
+      <section className="bg-[#090807]">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#5ec8ff]">
+                What We Do
+              </p>
+
+              <h2 className="mt-5 text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
+                OUR
+                <span className="text-[#d4af67]"> SERVICES.</span>
+              </h2>
+            </div>
+
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-[0.15em] text-[#d4af67] transition hover:text-[#5ec8ff]"
+            >
+              View All Services
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+
+          <div className="mt-16 grid gap-0 md:grid-cols-2">
+            <div className="border-t border-[#d4af67]/30 py-10 md:border-r md:pr-12">
+              <p className="text-sm font-black text-[#5ec8ff]">01</p>
+
+              <h3 className="mt-4 text-3xl font-black uppercase">
+                Hotel Management
+              </h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                Professional oversight of hotel operations, teams, guest
+                experience and business performance.
+              </p>
+            </div>
+
+            <div className="border-t border-[#d4af67]/30 py-10 md:pl-12">
+              <p className="text-sm font-black text-[#5ec8ff]">02</p>
+
+              <h3 className="mt-4 text-3xl font-black uppercase">
+                Staff &amp; Management Training
+              </h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                Practical training that develops capable teams and stronger
+                hospitality leadership.
+              </p>
+            </div>
+
+            <div className="border-t border-[#d4af67]/30 py-10 md:border-r md:pr-12">
+              <p className="text-sm font-black text-[#5ec8ff]">03</p>
+
+              <h3 className="mt-4 text-3xl font-black uppercase">
+                Revenue &amp; Performance
+              </h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                Performance-focused strategies to improve revenue, occupancy,
+                cost control and profitability.
+              </p>
+            </div>
+
+            <div className="border-t border-[#d4af67]/30 py-10 md:pl-12">
+              <p className="text-sm font-black text-[#5ec8ff]">04</p>
+
+              <h3 className="mt-4 text-3xl font-black uppercase">
+                Operational Consulting
+              </h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                Targeted solutions for hotels that need operational
+                restructuring, improvement or strategic direction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          BANNER 2
+      ========================================================== */}
+      <section className="bg-[#11100d]">
+        <Image
+          src="/loremm-banner-2.jpg"
+          alt="LOREMM Hospitality Consulting"
+          width={1800}
+          height={700}
+          className="h-auto w-full object-cover"
+        />
+      </section>
+
+      {/* =========================================================
+          VISION / MISSION
+      ========================================================== */}
+      <section className="bg-[#f4eee2] text-[#11100d]">
+        <div className="mx-auto grid max-w-7xl gap-0 px-6 py-20 sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28">
+          <div className="border-b border-[#9b7834]/30 pb-12 lg:border-b-0 lg:border-r lg:pr-16">
+            <Globe2 className="text-[#168ac0]" size={32} />
+
+            <p className="mt-6 text-sm font-black uppercase tracking-[0.25em] text-[#168ac0]">
+              Our Vision
+            </p>
+
+            <h2 className="mt-5 text-3xl font-black uppercase leading-tight sm:text-4xl">
+              TRUSTED HOSPITALITY PARTNERSHIP.
+            </h2>
+
+            <p className="mt-6 leading-8 text-[#5d574d]">
+              To become a trusted hospitality management partner known for
+              operational excellence, professional leadership and sustainable
+              business results.
+            </p>
+          </div>
+
+          <div className="pt-12 lg:pl-16 lg:pt-0">
+            <Target className="text-[#168ac0]" size={32} />
+
+            <p className="mt-6 text-sm font-black uppercase tracking-[0.25em] text-[#168ac0]">
+              Our Mission
+            </p>
+
+            <h2 className="mt-5 text-3xl font-black uppercase leading-tight sm:text-4xl">
+              BETTER SYSTEMS. BETTER SERVICE. BETTER RESULTS.
+            </h2>
+
+            <p className="mt-6 leading-8 text-[#5d574d]">
+              To provide hotel owners with the expertise, systems and
+              management discipline required to operate efficiently, serve
+              guests exceptionally and grow profitably.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          APPROACH
+      ========================================================== */}
+      <section id="approach" className="bg-[#090807]">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="max-w-4xl">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#5ec8ff]">
+              Our Approach
+            </p>
+
+            <h2 className="mt-5 text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
+              SIMPLE.
+              <span className="block text-[#d4af67]">DISCIPLINED.</span>
+              RESULTS-DRIVEN.
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-12 md:grid-cols-3">
+            <div>
+              <span className="text-5xl font-black text-[#d4af67]">01</span>
+
+              <h3 className="mt-5 text-2xl font-black uppercase">Assess</h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                We understand your hotel, identify operational weaknesses and
+                establish clear priorities.
+              </p>
+            </div>
+
+            <div>
+              <span className="text-5xl font-black text-[#d4af67]">02</span>
+
+              <h3 className="mt-5 text-2xl font-black uppercase">Improve</h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                We introduce practical systems, stronger management and better
+                ways of working.
+              </p>
+            </div>
+
+            <div>
+              <span className="text-5xl font-black text-[#d4af67]">03</span>
+
+              <h3 className="mt-5 text-2xl font-black uppercase">Grow</h3>
+
+              <p className="mt-4 leading-8 text-[#aaa193]">
+                We focus on performance, profitability and sustainable
+                long-term business growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          WHO WE SERVE
+      ========================================================== */}
+      <section className="border-t border-[#d4af67]/20 bg-[#11100d]">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#5ec8ff]">
+                Who We Serve
+              </p>
+
+              <h2 className="mt-5 text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
+                BUILT AROUND
+                <span className="block text-[#d4af67]">OWNERS.</span>
+              </h2>
+            </div>
+
+            <div className="grid gap-0 sm:grid-cols-2">
+              <div className="border-t border-[#d4af67]/30 py-8 sm:pr-8">
+                <Users className="text-[#5ec8ff]" size={26} />
+
+                <h3 className="mt-5 text-xl font-black uppercase">
+                  Hotel Owners
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#aaa193]">
+                  Owners who want professional oversight and stronger
+                  performance.
+                </p>
+              </div>
+
+              <div className="border-t border-[#d4af67]/30 py-8 sm:pl-8">
+                <Building2 className="text-[#5ec8ff]" size={26} />
+
+                <h3 className="mt-5 text-xl font-black uppercase">
+                  Hotel Investors
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#aaa193]">
+                  Investors who need dependable operational management for
+                  hospitality assets.
+                </p>
+              </div>
+
+              <div className="border-t border-[#d4af67]/30 py-8 sm:pr-8">
+                <TrendingUp className="text-[#5ec8ff]" size={26} />
+
+                <h3 className="mt-5 text-xl font-black uppercase">
+                  Growing Hotels
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#aaa193]">
+                  Hotels ready to improve systems, service and commercial
+                  performance.
+                </p>
+              </div>
+
+              <div className="border-t border-[#d4af67]/30 py-8 sm:pl-8">
+                <CheckCircle2 className="text-[#5ec8ff]" size={26} />
+
+                <h3 className="mt-5 text-xl font-black uppercase">
+                  Challenged Properties
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#aaa193]">
+                  Hotels that need structure, accountability and a practical
+                  turnaround approach.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          VALUES
+      ========================================================== */}
+      <section id="values" className="bg-[#f4eee2] text-[#11100d]">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-[#168ac0]">
+            Our Values
+          </p>
+
+          <h2 className="mt-5 max-w-4xl text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
+            HOW WE
+            <span className="text-[#9b7834]"> WORK.</span>
+          </h2>
+
+          <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div className="border-t-2 border-[#9b7834] pt-7">
+              <h3 className="text-xl font-black uppercase">Integrity</h3>
+
+              <p className="mt-4 text-sm leading-7 text-[#5d574d]">
+                We operate with honesty, transparency and accountability.
+              </p>
+            </div>
+
+            <div className="border-t-2 border-[#9b7834] pt-7">
+              <h3 className="text-xl font-black uppercase">Excellence</h3>
+
+              <p className="mt-4 text-sm leading-7 text-[#5d574d]">
+                We continuously seek better standards and stronger results.
+              </p>
+            </div>
+
+            <div className="border-t-2 border-[#9b7834] pt-7">
+              <h3 className="text-xl font-black uppercase">Accountability</h3>
+
+              <p className="mt-4 text-sm leading-7 text-[#5d574d]">
+                We take responsibility for performance and execution.
+              </p>
+            </div>
+
+            <div className="border-t-2 border-[#9b7834] pt-7">
+              <h3 className="text-xl font-black uppercase">Growth</h3>
+
+              <p className="mt-4 text-sm leading-7 text-[#5d574d]">
+                We focus on sustainable improvement for owners, teams and
+                businesses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          CONTACT
+      ========================================================== */}
+      <section id="contact" className="bg-[#090807]">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="grid gap-14 lg:grid-cols-[1fr_0.8fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#5ec8ff]">
+                Start A Conversation
+              </p>
+
+              <h2 className="mt-5 text-5xl font-black uppercase leading-[0.9] sm:text-7xl">
+                LET&apos;S MAKE
+                <span className="block text-[#d4af67]">
+                  YOUR HOTEL BETTER.
+                </span>
+              </h2>
+
+              <p className="mt-7 max-w-2xl leading-8 text-[#aaa193]">
+                Whether you need complete hotel management, operational
+                improvement, staff training or strategic consulting, LOREMM is
+                ready to discuss your property and your goals.
+              </p>
+            </div>
+
+            <div className="border-t border-[#d4af67]/30 pt-8">
+              <div className="flex gap-5 border-b border-[#d4af67]/20 py-6">
+                <Mail className="shrink-0 text-[#d4af67]" size={22} />
+
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.15em] text-[#5ec8ff]">
+                    Email
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#f7f1e5]">
+                    Loremmgroup01@gmail.com
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-5 border-b border-[#d4af67]/20 py-6">
+                <Phone className="shrink-0 text-[#d4af67]" size={22} />
+
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.15em] text-[#5ec8ff]">
+                    Phone
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#f7f1e5]">
+                    +234 806 255 6518
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-5 py-6">
+                <Building2 className="shrink-0 text-[#d4af67]" size={22} />
+
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.15em] text-[#5ec8ff]">
+                    Office
+                  </p>
+
+                  <p className="mt-2 text-sm leading-7 text-[#f7f1e5]">
+                    No. 6, Chief Steve Onu Street,
+                    <br />
+                    Achike Udenwa Estate,
+                    <br />
+                    Owerri, Imo State, Nigeria.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          FOOTER
+      ========================================================== */}
+      <footer className="border-t border-[#d4af67]/20 bg-[#060504]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+          <div>
+            <p className="text-xl font-black tracking-[0.15em] text-[#f7f1e5]">
+              LOREMM
+            </p>
+
+            <p className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-[#d4af67]">
+              Hospitality Management &amp; Consulting Ltd
+            </p>
+          </div>
+
+          <p className="text-xs uppercase tracking-[0.1em] text-[#777064]">
+            Hospitality Management. Operational Excellence. Sustainable Growth.
+          </p>
         </div>
       </footer>
     </main>
