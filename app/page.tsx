@@ -70,58 +70,151 @@ export default function Home() {
           </Link>
 
           {/* DESKTOP NAVIGATION */}
-          <nav className="hidden items-center gap-1 lg:flex">
-            <Link
-              href="/"
-              className="group relative rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#5ec8ff]"
-            >
-              Home
-              <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-[#5ec8ff]" />
-            </Link>
+          <div className="hidden items-center gap-2 lg:flex">
+            <nav className="flex items-center gap-1">
+              <Link
+                href="/"
+                className="group relative rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#5ec8ff]"
+              >
+                Home
+                <span className="absolute bottom-1 left-4 right-4 h-[2px] bg-[#5ec8ff]" />
+              </Link>
 
-            <Link
-              href="#about"
-              className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
-            >
-              About
-            </Link>
+              <Link
+                href="#about"
+                className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
+              >
+                About
+              </Link>
 
-            <Link
-              href="/services"
-              className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
-            >
-              Services
-            </Link>
+              <Link
+                href="/services"
+                className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
+              >
+                Services
+              </Link>
 
-            <Link
-              href="/ecosystem"
-              className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
-            >
-              Group Ecosystem
-            </Link>
+              <Link
+                href="/ecosystem"
+                className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
+              >
+                Group Ecosystem
+              </Link>
 
-            <Link
-              href="#approach"
-              className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
-            >
-              Approach
-            </Link>
+              <Link
+                href="#approach"
+                className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
+              >
+                Approach
+              </Link>
 
-            <Link
-              href="#values"
-              className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
-            >
-              Values
-            </Link>
+              <Link
+                href="#values"
+                className="rounded-full px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#d8d0c2] transition hover:bg-[#d4af67]/10 hover:text-[#d4af67]"
+              >
+                Values
+              </Link>
+            </nav>
+
+            {/* SOCIAL MEDIA LINKS */}
+            <div className="ml-3 flex items-center gap-1.5 border-l border-[#d4af67]/25 pl-3">
+              <a
+                href="https://web.facebook.com/profile.php?id=61594461112273"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4af67]/30 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:bg-[#168ac0]/15 hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[19px] w-[19px] fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6h1.8V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H8.2v3h2.6v8h2.7Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://x.com/LoremmHMC"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                title="X"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4af67]/30 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:bg-[#168ac0]/15 hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[17px] w-[17px] fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.24-8.28L2.8 2h6.4l4.42 5.85L18.9 2Zm-1.1 17.9h1.73L8.28 4H6.43L17.8 19.9Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@LoremmHospitalityManagement"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                title="YouTube"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4af67]/30 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:bg-[#168ac0]/15 hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[19px] w-[19px] fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@loremm.hospitalit"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                title="TikTok"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4af67]/30 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:bg-[#168ac0]/15 hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[19px] w-[19px] fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M19.3 7.1a5.8 5.8 0 0 1-3.6-1.2v8.2a5.9 5.9 0 1 1-5.1-5.8v3a2.9 2.9 0 1 0 2.2 2.8V2h3a5.8 5.8 0 0 0 3.5 2.6v2.5Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.instagram.com/loremmhospitality"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d4af67]/30 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:bg-[#168ac0]/15 hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[19px] w-[19px] fill-none stroke-current"
+                  strokeWidth="1.8"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" className="fill-current stroke-none" />
+                </svg>
+              </a>
+            </div>
 
             <Link
               href="#contact"
-              className="ml-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d4af67] to-[#e8c980] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#090807] shadow-lg transition hover:scale-[1.03] hover:from-[#f0d28d] hover:to-[#d4af67]"
+              className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d4af67] to-[#e8c980] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#090807] shadow-lg transition hover:scale-[1.03] hover:from-[#f0d28d] hover:to-[#d4af67]"
             >
               Contact Us
               <ArrowRight size={15} />
             </Link>
-          </nav>
+          </div>
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -164,6 +257,97 @@ export default function Home() {
                 </Link>
               ))}
             </nav>
+
+            {/* MOBILE SOCIAL MEDIA LINKS */}
+            <div className="mt-5 flex items-center justify-center gap-3 border-t border-[#d4af67]/20 pt-5">
+              <a
+                href="https://web.facebook.com/profile.php?id=61594461112273"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d4af67]/40 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6h1.8V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H8.2v3h2.6v8h2.7Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://x.com/LoremmHMC"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                title="X"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d4af67]/40 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[18px] w-[18px] fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.24-8.28L2.8 2h6.4l4.42 5.85L18.9 2Zm-1.1 17.9h1.73L8.28 4H6.43L17.8 19.9Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@LoremmHospitalityManagement"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                title="YouTube"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d4af67]/40 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@loremm.hospitalit"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                title="TikTok"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d4af67]/40 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M19.3 7.1a5.8 5.8 0 0 1-3.6-1.2v8.2a5.9 5.9 0 1 1-5.1-5.8v3a2.9 2.9 0 1 0 2.2 2.8V2h3a5.8 5.8 0 0 0 3.5 2.6v2.5Z" />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.instagram.com/loremmhospitality"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d4af67]/40 text-[#f7f1e5] transition hover:border-[#5ec8ff] hover:text-[#5ec8ff]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 fill-none stroke-current"
+                  strokeWidth="1.8"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" className="fill-current stroke-none" />
+                </svg>
+              </a>
+            </div>
           </div>
         )}
       </header>
@@ -223,8 +407,7 @@ export default function Home() {
               </p>
 
               <p className="mt-7 border-l-2 border-[#5ec8ff] pl-5 text-sm font-bold uppercase tracking-[0.1em] text-[#f7f1e5] sm:text-base">
-                Hospitality Management. Operational Excellence. Sustainable
-                Growth.
+                We manage your hotel, you enjoy the result.
               </p>
             </div>
           </div>
@@ -891,7 +1074,7 @@ export default function Home() {
           </div>
 
           <p className="text-xs uppercase tracking-[0.06em] text-[#777064]">
-            Hospitality Management. Operational Excellence. Sustainable Growth.
+            We manage your hotel, you enjoy the result.
           </p>
         </div>
       </footer>
