@@ -312,7 +312,7 @@ export default function Home() {
                   className="h-5 w-5 fill-current"
                   aria-hidden="true"
                 >
-                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a31 31 0 0 0 0-5.8 31 31 0 0 0-.5-5.8ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a31 31 0 0 0 .5-5.8A31 31 0 0 0 23.5 6.2ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
                 </svg>
               </a>
 
@@ -1056,6 +1056,10 @@ export default function Home() {
                   <p className="mt-2 text-sm text-[#f7f1e5]">
                     +234 806 255 6518
                   </p>
+
+                  <p className="mt-2 text-sm text-[#f7f1e5]">
+                    07085345098
+                  </p>
                 </div>
               </div>
 
@@ -1072,7 +1076,9 @@ export default function Home() {
                     <br />
                     Achike Udenwa Estate,
                     <br />
-                    Owerri, Imo State, Nigeria.
+                    New Owerri, Owerri,
+                    <br />
+                    Imo State, Nigeria.
                   </p>
                 </div>
               </div>
