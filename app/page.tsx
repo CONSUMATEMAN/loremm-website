@@ -165,7 +165,7 @@ export default function Home() {
                   className="h-[19px] w-[19px] fill-current"
                   aria-hidden="true"
                 >
-                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a31 31 0 0 0 .5-5.8A31 31 0 0 0 23.5 6.2ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
                 </svg>
               </a>
 
@@ -202,7 +202,12 @@ export default function Home() {
                 >
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" className="fill-current stroke-none" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    className="fill-current stroke-none"
+                  />
                 </svg>
               </a>
             </div>
@@ -307,7 +312,7 @@ export default function Home() {
                   className="h-5 w-5 fill-current"
                   aria-hidden="true"
                 >
-                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a31 31 0 0 0 0-5.8 31 31 0 0 0-.5-5.8ZM9.6 15.8V8.2l6.4 3.8-6.4 3.8Z" />
                 </svg>
               </a>
 
@@ -344,7 +349,12 @@ export default function Home() {
                 >
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" className="fill-current stroke-none" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    className="fill-current stroke-none"
+                  />
                 </svg>
               </a>
             </div>
@@ -855,6 +865,19 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* =========================================================
+          BANNER 3
+      ========================================================== */}
+      <section className="bg-[#11100d]">
+        <Image
+          src="/loremm-banner-3.jpg"
+          alt="LOREMM Hospitality Management and Consulting"
+          width={1800}
+          height={700}
+          className="h-auto w-full object-cover"
+        />
       </section>
 
       {/* =========================================================
