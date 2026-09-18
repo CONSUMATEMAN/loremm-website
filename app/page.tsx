@@ -1058,7 +1058,7 @@ export default function Home() {
                   </p>
 
                   <p className="mt-2 text-sm text-[#f7f1e5]">
-                    07085345098
+                    +234 708 534 5098
                   </p>
                 </div>
               </div>
